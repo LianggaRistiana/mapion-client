@@ -40,7 +40,7 @@ export function LoginFormCard() {
   });
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
-    console.log(values);
+    router.push("/home");
   }
 
   return (

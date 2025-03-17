@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -20,7 +20,7 @@ export function HeroCard() {
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
             <HeroTitle title="Mapion" className="text-6xl text-center" />
-            <p className="text-center text-muted-foreground ">
+            <p className="text-center mt-2 text-muted-foreground ">
               Find the Place with Ease
             </p>
           </div>
@@ -28,11 +28,11 @@ export function HeroCard() {
       </CardHeader>
       <CardContent></CardContent>
       <CardFooter className="flex justify-between gap-2">
-        <Button className="flex-1" onClick={() => router.push("/login")}>
-          Login
-        </Button>
         <Button variant="outline" onClick={() => router.push("/register")}>
           Register
+        </Button>
+        <Button className="flex-1" onClick={() => router.push("/login")}>
+          Login
         </Button>
       </CardFooter>
     </Card>

@@ -1,6 +1,7 @@
 "use client";
 
 import HeroTitle from "@/components/atoms/HeroTitle";
+import { ModeToggle } from "@/components/atoms/ModeToggle";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-items-center gap-y-2 md:gap-6 px-4">
       <HeroTitle title="Mapion" className="text-6xl text-center md:text-left" />
+      <ModeToggle></ModeToggle>
     </div>
   );
 }

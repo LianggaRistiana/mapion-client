@@ -32,7 +32,7 @@ const items = [
   },
   {
     title: "List Location",
-    url: "#",
+    url: "/list-location",
     icon: List,
   },
 ];

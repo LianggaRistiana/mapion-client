@@ -12,6 +12,7 @@ import HeroTitle from "../atoms/HeroTitle";
 import { useRouter } from "next/navigation";
 
 export function HeroCard() {
+  // const user = process.env.DB_USER
   const router = useRouter();
 
   return (

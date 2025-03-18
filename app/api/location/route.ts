@@ -34,3 +34,32 @@ export async function GET() {
     return NextResponse.json({ error: "Failed to fetch locations" }, { status: 500 });
   }
 }
+
+
+export async function POST(req: Request) {
+  try {
+    await dbConnect();
+    const body = await req.json();
+
+    // Validasi data (pastikan lat & lng ada)
+    if (!body.title || !body.lat || !body.lng) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
+
+    const newLocation = new Location(body);
+    await newLocation.save();
+
+    return NextResponse.json(
+      { message: "Location added successfully", location: newLocation },
+      { status: 201 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to add location" },
+      { status: 500 }
+    );
+  }
+}

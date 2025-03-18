@@ -8,6 +8,7 @@ interface MapProps {
   addMode?: boolean;
   locations?: Location[];
   center?: [number, number];
+  onSelectedLocation?: (location?: [number, number]) => void;
 }
 
 type Location = {
@@ -19,7 +20,7 @@ type Location = {
   lng: number;
 };
 
-export default function Map({ addMode, locations, center }: MapProps) {
+export default function Map({ addMode, locations, center, onSelectedLocation }: MapProps) {
   const [clickedPosition, setClickedPosition] = useState<
     [number, number] | null
   >(null);
@@ -63,7 +64,7 @@ export default function Map({ addMode, locations, center }: MapProps) {
       ))}
 
       {/* Mode menambah marker dengan klik di peta */}
-      {addMode && <ClickHandler setClickedPosition={setClickedPosition} />}
+      {addMode && <ClickHandler setClickedPosition={setClickedPosition} onSelectedLocation={onSelectedLocation}/>}
       {clickedPosition && (
         <Marker position={clickedPosition} icon={icon}>
           <Popup>
@@ -76,7 +77,6 @@ export default function Map({ addMode, locations, center }: MapProps) {
   );
 }
 
-// 🔹 Komponen untuk memperbarui center saat berubah
 function MapView({ center }: { center?: [number, number] }) {
   const map = useMap();
 
@@ -84,7 +84,7 @@ function MapView({ center }: { center?: [number, number] }) {
     if (center) {
       map.flyTo(center, map.getZoom(), {
         animate: true,
-        duration: 1.5, // Durasi animasi dalam detik
+        duration: 1.5,
       });
     }
   }, [center, map]);
@@ -92,15 +92,17 @@ function MapView({ center }: { center?: [number, number] }) {
   return null;
 }
 
-// 🔹 Komponen untuk menangani klik di peta
 function ClickHandler({
   setClickedPosition,
+  onSelectedLocation,
 }: {
   setClickedPosition: (pos: [number, number]) => void;
+  onSelectedLocation?: (pos?: [number, number]) => void;
 }) {
   useMapEvents({
     click: (e) => {
       setClickedPosition([e.latlng.lat, e.latlng.lng]);
+      onSelectedLocation?.([e.latlng.lat, e.latlng.lng]);
     },
   });
   return null;

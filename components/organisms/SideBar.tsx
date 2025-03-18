@@ -3,6 +3,7 @@ import { Calendar, Map, Plus, Search, Settings } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
@@ -12,6 +13,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import HeroTitle from "../atoms/HeroTitle";
+import { ModeToggle } from "../atoms/ModeToggle";
 
 // Menu items.
 const items = [
@@ -67,6 +69,9 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <ModeToggle />
+      </SidebarFooter>
     </Sidebar>
   );
 }

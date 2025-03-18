@@ -14,10 +14,12 @@ export default function Map() {
 
   return (
     <MapContainer
+      className="absolute inset-0 z-0" 
       center={[-8.796252651578675, 115.17631015244557]}
       zoom={15}
+      zoomControl={false}
       scrollWheelZoom={false}
-      style={{ height: "100vh", width: "100vw" }}
+      style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

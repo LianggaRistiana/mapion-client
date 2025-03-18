@@ -1,6 +1,5 @@
 "use client";
 
-import HeroTitle from "@/components/atoms/HeroTitle";
 import { ModeToggle } from "@/components/atoms/ModeToggle";
 import { LoginFormCard } from "@/components/molecules/LoginFormCard";
 

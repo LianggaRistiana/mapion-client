@@ -5,9 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +16,6 @@ import { loginSchema } from "@/lib/validators/authSchema";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -40,6 +37,7 @@ export function LoginFormCard() {
   });
 
   function onSubmit(values: z.infer<typeof loginSchema>) {
+    console.log(values);
     router.push("/home");
   }
 
@@ -72,7 +70,9 @@ export function LoginFormCard() {
               >
                 Register
               </Button>
-              <Button className="flex-1" type="submit">Submit</Button>
+              <Button className="flex-1" type="submit">
+                Submit
+              </Button>
             </div>
           </form>
         </Form>

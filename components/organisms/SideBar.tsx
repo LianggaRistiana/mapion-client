@@ -6,7 +6,6 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
@@ -24,7 +23,7 @@ const items = [
   },
   {
     title: "Add Location",
-    url: "#",
+    url: "/add-location",
     icon: Plus,
   },
   {

@@ -1,6 +1,7 @@
 "use client";
-import HeroTitle from "@/components/atoms/HeroTitle";
-import Map from "@/components/organisms/Map";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(() => import("@/components/organisms/Map"), { ssr: false });
 
 export default function Home() {
   return (

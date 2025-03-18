@@ -4,10 +4,10 @@ import { UseFormReturn } from "react-hook-form";
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-// Tentukan tipe props dengan UseFormReturn
 interface PasswordFieldProps {
   form: UseFormReturn<any>;
 }
+
 
 export default function PasswordField({ form }: PasswordFieldProps) {
   const [showPassword, setShowPassword] = useState(false);

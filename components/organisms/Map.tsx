@@ -14,7 +14,7 @@ export default function Map() {
 
   return (
     <MapContainer
-      className="absolute inset-0 z-0" 
+      className="" 
       center={[-8.796252651578675, 115.17631015244557]}
       zoom={15}
       zoomControl={false}

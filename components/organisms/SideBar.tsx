@@ -1,4 +1,6 @@
-import { Calendar, Map, Plus, Search, Settings } from "lucide-react";
+'use client';
+import { List, Map, Plus, LogOut } from "lucide-react";
+
 
 import {
   Sidebar,
@@ -13,6 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import HeroTitle from "../atoms/HeroTitle";
 import { ModeToggle } from "../atoms/ModeToggle";
+import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 // Menu items.
 const items = [
@@ -27,23 +31,14 @@ const items = [
     icon: Plus,
   },
   {
-    title: "Calendar",
+    title: "List Location",
     url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
+    icon: List,
   },
 ];
 
 export function AppSidebar() {
+  const router = useRouter();
   return (
     <Sidebar variant="inset">
       <SidebarHeader>
@@ -68,8 +63,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="flex flex-row justify-between">
         <ModeToggle />
+        <Button variant="outline" size="icon" onClick={() => router.push("/")}>
+          <LogOut />
+        </Button>
       </SidebarFooter>
     </Sidebar>
   );
